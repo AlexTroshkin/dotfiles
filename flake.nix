@@ -33,12 +33,17 @@
   };
 
   outputs = inputs @ { nixpkgs, home-manager, ... }: {
-    nixosConfigurations.normandy-sr-1 = nixpkgs.lib.nixosSystem rec {
+    nixosConfigurations.normandy-sr-1 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = inputs;
       modules = [
-        ./hosts/normandy-sr-1/system/configuration.nix
-        ./hosts/normandy-sr-1/home/default.nix
+        ./hosts/normandy-sr-1/system
+         
+        home-manager.nixosModules.home-manager {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.extraSpecialArgs = inputs;
+          home-manager.users.shepard = import ./hosts/normandy-sr-1/home;
+        }
       ];
     };
   };

@@ -1,29 +1,17 @@
-inputs @ { home-manager, ... }:
+{ ... }:
 
-let
-  home-module = { ... }: {
-    imports = [
-      ./git/default.nix
-      ./hyprland/default.nix
-      ./hyprpaper/default.nix
-      ./alacritty/default.nix
-      ./helix/default.nix
-      ./browsers/default.nix
-    ];
+{
+  imports = [
+    ./hyprland
+    ./hyprpaper
+    ./git
+  ];
 
-    home = {
-      username = "shepard";
-      homeDirectory = "/home/shepard";
-      stateVersion = "23.11";
-    };
-
-    programs.home-manager.enable = true;
+  home = {
+    username = "shepard";
+    homeDirectory = "/home/shepard";
+    stateVersion = "24.05";
   };
-in
-
-home-manager.nixosModules.home-manager {
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
-  home-manager.extraSpecialArgs = inputs;
-  home-manager.users.shepard = home-module;
+   
+  programs.home-manager.enable = true;
 }

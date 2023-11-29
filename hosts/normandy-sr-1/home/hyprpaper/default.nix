@@ -6,7 +6,7 @@
     recursive = true;
   };
 
-  environment.systemPackages = [
+  home.packages = [
     pkgs.hyprpaper
   ];
 }
