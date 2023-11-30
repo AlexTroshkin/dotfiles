@@ -1,10 +1,22 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
     enableNvidiaPatches = true; 
+  };
+
+  services.xserver.videoDrivers = [ "nvidia" ];
+
+  xdg = {
+    portal = {
+      enable = true;
+      wlr.enable = true;      
+      extraPortals = [ 
+        pkgs.xdg-desktop-portal-gtk
+      ];
+    };
   };
 
   environment = {
@@ -19,5 +31,10 @@
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
     };
+
+    systemPackages = [
+      pkgs.xdg-utils
+      pkgs.libva-utils
+    ];
   };
 }

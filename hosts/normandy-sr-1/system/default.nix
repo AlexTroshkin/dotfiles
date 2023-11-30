@@ -12,5 +12,6 @@
     ./hyprland
     ./vscode
     ./telegram
+    ./obsidian
   ];
 }

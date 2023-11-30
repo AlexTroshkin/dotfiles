@@ -12,6 +12,9 @@
     enable = true;
     driSupport = true;
     driSupport32Bit = true;
+    extraPackages = [
+      pkgs.libva
+    ];
   };
 
   # Load nvidia driver for Xorg and Wayland (?)

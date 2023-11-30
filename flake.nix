@@ -28,6 +28,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -35,9 +36,14 @@
   outputs = inputs @ { nixpkgs, home-manager, ... }: {
     nixosConfigurations.normandy-sr-1 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+      specialArgs = inputs;
       modules = [
         ./hosts/normandy-sr-1/system
-         
+
+        (args: {
+          nixpkgs.overlays = import ./overlays args;
+        })
+        
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
