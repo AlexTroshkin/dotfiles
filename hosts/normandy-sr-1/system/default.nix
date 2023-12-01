@@ -5,11 +5,14 @@
     ./configuration.nix
     ./hardware-configuration.nix
     ./gpu
+    #./picom
+    #./wm/ragnarwm
+    #./wm/hyprland
+    ./wm/bspwm
     ./git
     ./alacritty
     ./browsers
     ./helix
-    ./hyprland
     ./vscode
     ./telegram
     ./obsidian

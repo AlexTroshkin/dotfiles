@@ -2,10 +2,11 @@
 
 {
   imports = [
-    ./hyprland
-    ./hyprpaper
+    #./hyprland
+    #./hyprpaper
     ./helix
     ./git
+    ./wm/bspwm
   ];
 
   home = {
