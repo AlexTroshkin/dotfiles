@@ -26,7 +26,7 @@
     {
       nixosConfigurations.normandy-sr-1 =
         let
-          username = "p47f1nd3r";
+          username = "p47hf1nd3r";
           specialArgs = {
             inherit inputs username;
           };
