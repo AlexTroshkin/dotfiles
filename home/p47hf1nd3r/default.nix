@@ -23,6 +23,7 @@
     ./hyprland
     ./keepassxc
     ./mattermost
+    ./openconnect
   ];
 
   services = {
