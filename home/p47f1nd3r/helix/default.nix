@@ -10,7 +10,7 @@
   programs.helix = {
     enable = true;
     defaultEditor = true;
-    language = [
+    languages = [
       {
         name = "nix";
         auto-format = true;
