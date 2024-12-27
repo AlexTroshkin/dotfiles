@@ -24,16 +24,17 @@
     settings = {
       theme = "doom_acario_dark";
       editor = {
+        popup-border = "all";
         auto-format = true;
 
         lsp.display-messages = true;
 
-        whitespace.render = "all";
-        whitespace.characters = {
-          # space = "·";
-          nbsp = "⍽";
-          tab = "→";
-          newline = "⤶";
+        cursor-shape = {
+          insert = "underline";
+          select = "bar";
+        };
+        indent-guides = {
+          render = true;
         };
       };
     };
