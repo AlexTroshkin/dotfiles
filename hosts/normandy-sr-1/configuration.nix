@@ -41,11 +41,11 @@
 
   fileSystems = {
     "/" = {
-      device = "/dev/disk/by-uuid/6cb395b0-6796-4023-b81e-eeb86e0f7ff5";
+      device = "/dev/disk/by-uuid/e0519082-c86d-4ca4-b563-e51b21eb0522";
       fsType = "ext4";
     };
     "/boot" = {
-      device = "/dev/disk/by-uuid/F735-45A5";
+      device = "/dev/disk/by-uuid/C791-AFAA";
       fsType = "vfat";
       options = [
         "fmask=0077"
@@ -183,6 +183,10 @@
   };
 
   programs = {
+    ssh = {
+      startAgent = true;
+    };
+
     hyprland = {
       enable = true;
     };
