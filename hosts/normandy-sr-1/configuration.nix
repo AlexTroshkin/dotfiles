@@ -112,7 +112,7 @@
   };
 
   fonts = {
-    packages = with pkgs; [ nerdfonts ];
+    # packages = with pkgs; [ nerdfonts ];
   };
 
   # Don't forget to set a password with ‘passwd’.
