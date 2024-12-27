@@ -35,8 +35,6 @@
           tab = "→";
           newline = "⤶";
         };
-
-        rainbow-brackets = true;
       };
     };
   };
