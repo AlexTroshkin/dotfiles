@@ -41,11 +41,11 @@
 
   fileSystems = {
     "/" = {
-      device = "/dev/disk/by-uuid/e0519082-c86d-4ca4-b563-e51b21eb0522";
+      device = "/dev/disk/by-uuid/59555191-46fc-4921-bf9d-a042d07113cc";
       fsType = "ext4";
     };
     "/boot" = {
-      device = "/dev/disk/by-uuid/C791-AFAA";
+      device = "/dev/disk/by-uuid/0ACD-1D72";
       fsType = "vfat";
       options = [
         "fmask=0077"
