@@ -1,4 +1,4 @@
-{ username, ... }:
+{ username, pkgs, ... }:
 
 {
   home = {
@@ -24,6 +24,11 @@
     ./keepassxc
     ./mattermost
     ./openconnect
+  ];
+
+  # Just pakcages without configs
+  home.packages = with pkgs; [
+    just # https://github.com/casey/just
   ];
 
   programs = {
