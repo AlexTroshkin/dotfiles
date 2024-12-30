@@ -24,6 +24,7 @@
     ./keepassxc
     ./mattermost
     ./openconnect
+    ./obsidian
   ];
 
   # Just pakcages without configs
