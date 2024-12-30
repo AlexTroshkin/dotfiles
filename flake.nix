@@ -44,6 +44,7 @@
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = specialArgs;
               home-manager.users.${username} = import ./home/${username};
+              home-manager.backupFileExtension = "backup";
             }
           ];
         };
