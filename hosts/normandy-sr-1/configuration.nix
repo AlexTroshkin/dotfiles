@@ -37,6 +37,11 @@
 
     kernelModules = [ "kvm-intel" ];
     extraModulePackages = [ ];
+
+    # https://discourse.nixos.org/t/fixing-audio-on-asus-strix-scar-17-g733qs/12687/10
+    extraModprobeConfig = ''
+      options snd-hda-intel patch=hda-jack-retask.fw
+    '';
   };
 
   fileSystems = {
