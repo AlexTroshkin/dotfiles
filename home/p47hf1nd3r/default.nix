@@ -63,6 +63,7 @@
     # Just pakcages without configs
     packages = with pkgs; [
       just # https://github.com/casey/just
+      ulauncher
     ];
 
     pointerCursor = {
