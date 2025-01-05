@@ -188,6 +188,10 @@
       };
       videoDrivers = [ "nvidia" ]; # use nvidia driver for xorg & wayland. #todo: Why xserver section affected wayland?
     };
+
+    udisks2 = {
+      enable = true;
+    };
   };
 
   programs = {

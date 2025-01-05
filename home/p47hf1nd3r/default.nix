@@ -8,9 +8,12 @@
     ./hyprland
     ./hyprpaper
     ./keepassxc
+    ./mako
     ./mattermost
     ./openconnect
     ./obsidian
+    ./superfile
+    ./udiskie
   ];
 
   programs = {
