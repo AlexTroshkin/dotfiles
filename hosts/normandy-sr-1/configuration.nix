@@ -118,7 +118,9 @@
   };
 
   fonts = {
-    # packages = with pkgs; [ nerdfonts ];
+    packages = with pkgs; [
+      nerd-fonts.iosevka-term
+    ];
   };
 
   # Don't forget to set a password with ‘passwd’.
@@ -209,6 +211,7 @@
   };
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  environment.sessionVariables.EDITOR = "hx";
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
