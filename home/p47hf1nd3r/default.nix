@@ -16,6 +16,14 @@
     ./udiskie
   ];
 
+  # Hack for udiskie and other tools that require tray unit
+  systemd.user.targets.tray = {
+    Unit = {
+      Description = "Home Manager System Tray";
+      Requires = [ "graphical-session-pre.target" ];
+    };
+  };
+
   programs = {
     # Let Home Manager install and manage itself
     home-manager.enable = true;
