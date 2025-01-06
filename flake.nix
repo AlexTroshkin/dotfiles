@@ -17,6 +17,10 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
+
+    zen-browser = {
+      url = "github:AlexTroshkin/zen-browser-flake";
+    };
   };
 
   outputs =
@@ -28,11 +32,13 @@
     }:
     {
       nixosConfigurations.normandy-sr-1 = nixpkgs.lib.nixosSystem rec {
-        specialArgs = {
-          username = "p47hf1nd3r";
-          inputs = inputs;
-        };
         system = "x86_64-linux";
+        specialArgs = {
+          inherit system;
+          inherit inputs;
+
+          username = "p47hf1nd3r";
+        };
         modules = [
           ./hosts/normandy-sr-1
           home-manager.nixosModules.home-manager

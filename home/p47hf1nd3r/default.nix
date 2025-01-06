@@ -14,6 +14,7 @@
     ./obsidian
     ./superfile
     ./udiskie
+    ./zen-browser
   ];
 
   # Hack for udiskie and other tools that require tray unit
