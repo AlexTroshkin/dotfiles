@@ -1,16 +1,22 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   home.packages = with pkgs; [
     nil # nix lsp - default
     nixd # nix lsp
     nixfmt-rfc-style # nix formatter
+    inputs.roslyn-language-server.packages.${pkgs.stdenv.hostPlatform.system}.roslyn-language-server
   ];
 
   programs.helix = {
     enable = true;
+    package = inputs.helix.packages.${pkgs.stdenv.hostPlatform.system}.default;
     defaultEditor = true;
     languages = {
+      language-server.roslyn = {
+        command = "roslyn-language-server";
+      };
+
       language = [
         {
           name = "nix";
@@ -18,6 +24,10 @@
           formatter = {
             command = "nixfmt";
           };
+        }
+        {
+          name = "c-sharp";
+          language-servers = [ "roslyn" ];
         }
       ];
     };

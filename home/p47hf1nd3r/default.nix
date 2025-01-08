@@ -12,6 +12,8 @@
     ./mattermost
     ./openconnect
     ./obsidian
+    # ./rider
+    ./mattermost
     ./superfile
     ./udiskie
     ./zen-browser
@@ -76,6 +78,7 @@
     packages = with pkgs; [
       just # https://github.com/casey/just
       ulauncher
+      telegram-desktop
     ];
 
     pointerCursor = {

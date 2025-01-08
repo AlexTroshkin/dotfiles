@@ -4,6 +4,14 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
+    helix = {
+      url = "github:sofusa/helix-pull-diagnostics";
+    };
+
+    roslyn-language-server = {
+      url = "github:sofusa/roslyn-language-server";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";

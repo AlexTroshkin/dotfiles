@@ -210,8 +210,44 @@
     };
   };
 
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
-  environment.sessionVariables.EDITOR = "hx";
+  environment =
+    let
+      dotnet-combined =
+        (
+          with pkgs.dotnetCorePackages;
+          combinePackages [
+            sdk_8_0_4xx
+            sdk_9_0_1xx
+          ]
+        ).overrideAttrs
+          (
+            finalAttrs: previousAttrs: {
+              # This is needed to install workload in $HOME
+              # https://discourse.nixos.org/t/dotnet-maui-workload/20370/2
+
+              postBuild =
+                (previousAttrs.postBuild or '''')
+                + ''
+
+                  for i in $out/sdk/*
+                  do
+                    i=$(basename $i)
+                    mkdir -p $out/metadata/workloads/''${i/-*}
+                    touch $out/metadata/workloads/''${i/-*}/userlocal
+                  done
+                '';
+            }
+          );
+    in
+    {
+      sessionVariables.NIXOS_OZONE_WL = "1";
+      sessionVariables.EDITOR = "hx";
+      sessionVariables.DOTNET_ROOT = "${dotnet-combined}";
+
+      systemPackages = [
+        dotnet-combined
+      ];
+    };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
