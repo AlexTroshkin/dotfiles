@@ -69,6 +69,11 @@
     # Enable OpenGL
     graphics.enable = true;
 
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
+
     nvidia = {
       modesetting.enable = true;
       powerManagement.enable = false;
@@ -192,6 +197,10 @@
     };
 
     udisks2 = {
+      enable = true;
+    };
+
+    blueman = {
       enable = true;
     };
   };

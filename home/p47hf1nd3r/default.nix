@@ -12,7 +12,7 @@
     ./mattermost
     ./openconnect
     ./obsidian
-    # ./rider
+    ./rider
     ./mattermost
     ./superfile
     ./udiskie
@@ -76,9 +76,13 @@
 
     # Just pakcages without configs
     packages = with pkgs; [
+      btop
+      blueman
       just # https://github.com/casey/just
       ulauncher
       telegram-desktop
+      #hiddify-app - does not work as vpn ...
+      nekoray
     ];
 
     pointerCursor = {
