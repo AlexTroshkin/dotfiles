@@ -37,6 +37,8 @@
     };
 
     kernelModules = [ "kvm-intel" ];
+    kernelPackages = pkgs.linuxPackages_6_12;
+
     extraModulePackages = [ ];
 
     # https://discourse.nixos.org/t/fixing-audio-on-asus-strix-scar-17-g733qs/12687/10
