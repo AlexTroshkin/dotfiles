@@ -208,6 +208,8 @@
   };
 
   programs = {
+    nix-ld.enable = true;
+
     ssh = {
       startAgent = true;
     };
