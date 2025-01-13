@@ -16,6 +16,7 @@
     ./mattermost
     ./superfile
     ./udiskie
+    ./uwsm
     ./zen-browser
   ];
 
@@ -73,6 +74,9 @@
 
     file.".config/wallpapers/9c031d6a-7193-45be-8db0-003c5ec817a2.jpeg".source =
       ./../../wallpapers/9c031d6a-7193-45be-8db0-003c5ec817a2.jpeg;
+
+    file.".config/wallpapers/8ad7f03f-e803-466b-b012-a26523893ecc.jpeg".source =
+      ./../../wallpapers/8ad7f03f-e803-466b-b012-a26523893ecc.jpeg;
 
     # Just pakcages without configs
     packages = with pkgs; [
