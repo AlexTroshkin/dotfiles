@@ -82,11 +82,12 @@
     packages = with pkgs; [
       btop
       blueman
-      just # https://github.com/casey/just
+      clipse
+      just
       ulauncher
       telegram-desktop
-      #hiddify-app - does not work as vpn ...
       nekoray
+      warp-terminal
     ];
 
     pointerCursor = {
