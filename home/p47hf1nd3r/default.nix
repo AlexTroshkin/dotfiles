@@ -88,6 +88,7 @@
       telegram-desktop
       nekoray
       warp-terminal
+      wl-clipboard
     ];
 
     pointerCursor = {
