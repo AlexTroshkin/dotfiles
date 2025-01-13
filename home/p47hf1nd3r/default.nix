@@ -20,6 +20,14 @@
     ./zen-browser
   ];
 
+  nixpkgs.overlays = [
+    (self: super: {
+      warp-terminal = super.warp-terminal.overrideAttrs (oldAttrs: {
+        waylandSupport = true;
+      });
+    })
+  ];
+
   # Hack for udiskie and other tools that require tray unit
   systemd.user.targets.tray = {
     Unit = {
