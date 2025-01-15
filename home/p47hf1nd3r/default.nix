@@ -91,6 +91,7 @@
       btop
       blueman
       clipse
+      ghostty
       just
       ulauncher
       telegram-desktop
