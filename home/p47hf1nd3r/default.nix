@@ -1,4 +1,9 @@
-{ username, pkgs, ... }:
+{
+  username,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   imports = [
@@ -88,13 +93,13 @@
 
     # Just pakcages without configs
     packages = with pkgs; [
+      inputs.ayugram-desktop.packages.${pkgs.system}.ayugram-desktop
       btop
       blueman
       clipse
       ghostty
       just
       ulauncher
-      telegram-desktop
       nekoray
       warp-terminal
       wl-clipboard

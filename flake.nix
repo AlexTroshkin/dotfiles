@@ -29,6 +29,10 @@
     zen-browser = {
       url = "github:AlexTroshkin/zen-browser-flake";
     };
+
+    ayugram-desktop = {
+      url = "github:/ayugram-port/ayugram-desktop/release?submodules=1";
+    };
   };
 
   outputs =
