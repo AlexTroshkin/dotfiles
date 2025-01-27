@@ -97,12 +97,9 @@
       btop
       blueman
       clipse
-      ghostty
       just
-      kitty
       ulauncher
       nekoray
-      warp-terminal
       wl-clipboard
     ];
 
