@@ -2,37 +2,17 @@
   description = "Yet another Nix OS configuration";
 
   inputs = {
+    alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-
-    helix = {
-      url = "github:sofusa/helix-pull-diagnostics";
-    };
-
-    roslyn-language-server = {
-      url = "github:sofusa/roslyn-language-server";
-    };
-
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-    };
-
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
-
-    zen-browser = {
-      url = "github:AlexTroshkin/zen-browser-flake";
-    };
-
-    ayugram-desktop = {
-      url = "github:/ayugram-port/ayugram-desktop/release?submodules=1";
-    };
+    helix.url = "github:sofusa/helix-pull-diagnostics";
+    roslyn-language-server.url = "github:sofusa/roslyn-language-server";
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
+    hyprland-plugins.inputs.hyprland.follows = "hyprland";
+    zen-browser.url = "github:AlexTroshkin/zen-browser-flake";
+    ayugram-desktop.url = "github:/ayugram-port/ayugram-desktop/release?submodules=1";
   };
 
   outputs =
@@ -53,6 +33,7 @@
         };
         modules = [
           ./hosts/normandy-sr-1
+          ./overlays
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

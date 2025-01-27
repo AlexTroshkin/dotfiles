@@ -99,6 +99,7 @@
       clipse
       ghostty
       just
+      kitty
       ulauncher
       nekoray
       warp-terminal
