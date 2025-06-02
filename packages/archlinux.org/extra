@@ -26,3 +26,5 @@ wireplumber                 # Session / policy manager implementation for PipeWi
 wl-clipboard                # Command-line copy/paste utilities for Wayland
 xdg-desktop-portal-gtk      # A backend implementation for xdg-desktop-portal using GTK
 xdg-desktop-portal-hyprland # xdg-desktop-portal backend for hyprland
+ttf-inconsolata-nerd        # Patched font Inconsolata from nerd fonts library
+noto-fonts-emoji            # Google Noto emoji fonts
