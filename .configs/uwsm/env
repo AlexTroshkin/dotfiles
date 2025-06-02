@@ -1,0 +1,32 @@
+# https://wiki.hyprland.org/Nvidia/#flickering-in-electron--cef-apps
+export ELECTRON_OZONE_PLATFORM_HINT=auto
+
+# https://wiki.hyprland.org/Configuring/Environment-variables/#toolkit-backend-variables
+export GDK_BACKEND=wayland,x11,*
+export QT_QPA_PLATFORM=wayland;xcb
+export SDL_VIDEODRIVER=wayland
+export CLUTTER_BACKEND=wayland
+
+# https://wiki.hyprland.org/Configuring/Environment-variables/#xdg-specifications
+# uwsm users don’t need to explicitly set XDG environment variables, as uwsm sets them, automatically
+# export XDG_CURRENT_DESKTOP=Hyprland
+# export XDG_SESSION_TYPE=wayland
+# export XDG_SESSION_DESKTOP=Hyprland
+
+# https://wiki.hyprland.org/Configuring/Environment-variables/#qt-variables
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
+export QT_QPA_PLATFORM=wayland;xcb
+export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+export QT_QPA_PLATFORMTHEME=qt5ct
+
+# https://wiki.hyprland.org/Configuring/Environment-variables/#nvidia-specific
+export GBM_BACKEND=nvidia-drm
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
+export LIBVA_DRIVER_NAME=nvidia
+# https://wiki.hyprland.org/Nvidia/#va-api-hardware-video-acceleration
+export NVD_BACKEND=direct
+
+# https://wiki.hyprland.org/Configuring/Environment-variables/#theming-related-variables
+# GTK_THEME - Set a GTK theme manually, for those who want to avoid appearance tools such as lxappearance or nwg-look
+# XCURSOR_THEME - Set your cursor theme. The theme needs to be installed and readable by your user.
+# XCURSOR_SIZE - Set cursor size. See here for why you might want this variable set.
