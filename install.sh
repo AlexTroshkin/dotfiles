@@ -109,8 +109,7 @@ useradd -m -G wheel -s /bin/bash "$USERNAME"
 echo "$USERNAME:$PASSWORD" | chpasswd
 echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
 
-grep -v '^#' /tmp/dotfiles/packages/archlinux.org/core | grep -v '^$' | grep -v '^-' | grep -v '^ ' | sed 's/#.*$//' | sed 's/[[:space:]]*$//' | sed 's/^/core\//' | xargs sudo pacman -S --needed --noconfirm
-grep -v '^#' /tmp/dotfiles/packages/archlinux.org/extra | grep -v '^$' | grep -v '^-' | grep -v '^ ' | sed 's/#.*$//' | sed 's/[[:space:]]*$//' | sed 's/^/extra\//' | xargs sudo pacman -S --needed --noconfirm
+awk '{print $1}' /tmp/dotfiles/packages/archlinux.org | xargs sudo pacman -S --needed --noconfirm
 
 # https://wiki.hyprland.org/Nvidia/#early-kms-modeset-and-fbdev
 
@@ -129,7 +128,7 @@ git clone https://aur.archlinux.org/paru.git
 (cd paru && makepkg -si)
 rm -rf paru
 
-grep -v '^#' /tmp/dotfiles/packages/aur.archlinux.org/packages | grep -v '^$' | grep -v '^-' | grep -v '^ ' | sed 's/#.*$//' | sed 's/[[:space:]]*$//' | xargs paru -S --needed --noconfirm
+awk '{print $1}' /tmp/dotfiles/packages/aur.archlinux.org | xargs paru -S --needed --noconfirm
 
 systemctl enable NetworkManager
 # https://wiki.archlinux.org/title/Bluetooth
