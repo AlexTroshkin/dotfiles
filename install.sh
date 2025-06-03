@@ -125,11 +125,11 @@ done
 
 mkinitcpio -P
 
-git clone https://aur.archlinux.org/yay-bin.git
-(cd yay-bin && makepkg -si)
-rm -rf yay-bin
+git clone https://aur.archlinux.org/paru.git
+(cd paru && makepkg -si)
+rm -rf paru
 
-grep -v '^#' /tmp/dotfiles/packages/aur.archlinux.org/packages | grep -v '^$' | grep -v '^-' | grep -v '^ ' | sed 's/#.*$//' | sed 's/[[:space:]]*$//' | xargs yay -S --needed --noconfirm
+grep -v '^#' /tmp/dotfiles/packages/aur.archlinux.org/packages | grep -v '^$' | grep -v '^-' | grep -v '^ ' | sed 's/#.*$//' | sed 's/[[:space:]]*$//' | xargs paru -S --needed --noconfirm
 
 systemctl enable NetworkManager
 # https://wiki.archlinux.org/title/Bluetooth
