@@ -107,9 +107,22 @@ BOOT
 
 useradd -m -G wheel -s /bin/bash "$USERNAME"
 echo "$USERNAME:$PASSWORD" | chpasswd
-echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
+echo "%wheel ALL=(ALL) ALL
+$USERNAME ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
-awk '{print \$1}' /opt/dotfiles/packages/archlinux.org | xargs sudo pacman -Sy --needed --noconfirm
+su - $USERNAME -c '
+    awk '{print \$1}' /opt/dotfiles/packages/archlinux.org | xargs sudo pacman -Syu --needed --noconfirm
+
+    git clone https://aur.archlinux.org/paru.git
+    cd ./paru
+    makepkg -si --noconfirm
+    cd ../
+    rm -rf ./paru
+
+    awk '{print \$1}' /opt/dotfiles/packages/aur.archlinux.org | xargs paru -Syu --needed --noconfirm --skipreview
+'
+
+sed -i '$ d' /etc/sudoers
 
 # https://wiki.hyprland.org/Nvidia/#early-kms-modeset-and-fbdev
 
@@ -123,14 +136,6 @@ for module in "$\{NVIDIA_MODULES[@]}"; do
 done
 
 mkinitcpio -P
-
-sudo -u $USERNAME git clone https://aur.archlinux.org/paru.git /home/$USERNAME/paru
-cd /home/$USERNAME/paru
-sudo -u $USERNAME makepkg -si --noconfirm
-cd /
-rm -rf /home/$USERNAME/paru
-
-awk '{print \$1}' /opt/dotfiles/packages/aur.archlinux.org | xargs sudo -u $USERNAME paru -Sy --needed --noconfirm
 
 systemctl enable NetworkManager
 # https://wiki.archlinux.org/title/Bluetooth
