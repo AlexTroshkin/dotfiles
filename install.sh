@@ -77,8 +77,8 @@ echo "👉 generating fstab"
 genfstab -U /mnt >> /mnt/etc/fstab
 
 echo "🌀 Copying dotfiles for use in crhoot"
-mkdir /mnt/tmp/dotfiles
-cp -r . /tmp/dotfiles
+mkdir /mnt/opt/dotfiles
+cp -r . /mnt/opt/dotfiles
 
 arch-chroot /mnt /bin/bash <<EOF
 set -euo pipefail
@@ -109,26 +109,28 @@ useradd -m -G wheel -s /bin/bash "$USERNAME"
 echo "$USERNAME:$PASSWORD" | chpasswd
 echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
 
-awk '{print $1}' /tmp/dotfiles/packages/archlinux.org | xargs sudo pacman -S --needed --noconfirm
+awk '{print \$1}' /opt/dotfiles/packages/archlinux.org | xargs sudo pacman -Sy --needed --noconfirm
 
 # https://wiki.hyprland.org/Nvidia/#early-kms-modeset-and-fbdev
 
 CONFIG_FILE="/etc/mkinitcpio.conf"
 NVIDIA_MODULES=("nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm")
 
-for module in "${NVIDIA_MODULES[@]}"; do
-    if ! grep -q "MODULES=(.*$module" "$CONFIG_FILE"; then
-        sed -i "s/MODULES=(\(.*\))/MODULES=(\1 $module)/" "$CONFIG_FILE"
+for module in "$\{NVIDIA_MODULES[@]}"; do
+    if ! grep -q "MODULES=(.*\$module" "\$CONFIG_FILE"; then
+        sed -i "s/MODULES=(\(.*\))/MODULES=(\1 \$module)/" "\$CONFIG_FILE"
     fi
 done
 
 mkinitcpio -P
 
-git clone https://aur.archlinux.org/paru.git
-(cd paru && makepkg -si)
-rm -rf paru
+sudo -u $USERNAME git clone https://aur.archlinux.org/paru.git /home/$USERNAME/paru
+cd /home/$USERNAME/paru
+sudo -u $USERNAME makepkg -si --noconfirm
+cd /
+rm -rf /home/$USERNAME/paru
 
-awk '{print $1}' /tmp/dotfiles/packages/aur.archlinux.org | xargs paru -S --needed --noconfirm
+awk '{print \$1}' /opt/dotfiles/packages/aur.archlinux.org | xargs sudo -u $USERNAME paru -Sy --needed --noconfirm
 
 systemctl enable NetworkManager
 # https://wiki.archlinux.org/title/Bluetooth
