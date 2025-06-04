@@ -134,6 +134,7 @@ sed -i '$ d' /etc/sudoers
 
 cp -Rf /opt/dotfiles/.config /home/$USHERNAME/
 chown -R $USERNAME:$USERNAME /home/$USERNAME/.config
+rm -rf /opt/dotfiles
 
 # https://wiki.hyprland.org/Nvidia/#early-kms-modeset-and-fbdev
 
