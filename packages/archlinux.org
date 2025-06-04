@@ -23,8 +23,12 @@ extra/pipewire-jack               # Low-latency audio/video router and processor
 extra/pipewire-pulse              # Low-latency audio/video router and processor - PulseAudio replacement
 extra/qt5-wayland                 # Provides APIs for Wayland (https://wiki.hyprland.org/Useful-Utilities/Must-have/#qt-wayland-support)
 extra/qt5ct                       # Qt 5 Configuration Utility (https://wiki.hyprland.org/Getting-Started/Master-Tutorial/#themes)
+extra/qt6-multimedia-ffmpeg       # FFMpeg backend for qt6-multimedia
+extra/qt6-svg                     # Classes for displaying the contents of SVG files
+extra/qt6-virtualkeyboard         # Virtual keyboard framework
 extra/qt6-wayland                 # Provides APIs for Wayland (https://wiki.hyprland.org/Useful-Utilities/Must-have/#qt-wayland-support)
 extra/qt6ct                       # Qt 6 Configuration Utility (https://wiki.hyprland.org/Getting-Started/Master-Tutorial/#themes)
+extra/sddm                        # QML based X11 and Wayland display manager
 extra/ttf-inconsolata-nerd        # Patched font Inconsolata from nerd fonts library
 extra/udiskie                     # Removable disk automounter using udisks
 extra/uwsm                        # A standalone Wayland session manager (https://wiki.hyprland.org/Getting-Started/Master-Tutorial/#launching-hyprland)

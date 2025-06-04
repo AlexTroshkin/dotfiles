@@ -67,11 +67,11 @@ mkfs.ext4 -F "${DISK}p2"
 
 echo "🔌 Mounting"
 mount "${DISK}p2" /mnt
-mkdir -p /mnt/boot/efi
-mount "${DISK}p1" /mnt/boot/efi
+mkdir -p /mnt/boot
+mount "${DISK}p1" /mnt/boot
 
 echo "📦 Installing the kernel and base packages"
-pacstrap /mnt base base-devel linux linux-firmware
+pacstrap -K /mnt base base-devel linux linux-firmware
 
 echo "👉 generating fstab"
 genfstab -U /mnt >> /mnt/etc/fstab
@@ -97,8 +97,8 @@ cat > /etc/hosts <<HOSTS
 127.0.1.1   $HOSTNAME.localdomain $HOSTNAME
 HOSTS
 
-bootctl --path=/boot/efi install
-cat > /boot/efi/loader/entries/arch.conf <<BOOT
+bootctl install
+cat > /boot/loader/entries/arch.conf <<BOOT
 title   Arch Linux
 linux   /vmlinuz-linux
 initrd  /initramfs-linux.img
@@ -110,7 +110,7 @@ echo "$USERNAME:$PASSWORD" | chpasswd
 echo "%wheel ALL=(ALL) ALL
 $USERNAME ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
-su - $USERNAME -c '
+su - "$USERNAME" <<'EOF_USER'
     awk '{print \$1}' /opt/dotfiles/packages/archlinux.org | xargs sudo pacman -Syu --needed --noconfirm
 
     git clone https://aur.archlinux.org/paru.git
@@ -120,16 +120,25 @@ su - $USERNAME -c '
     rm -rf ./paru
 
     awk '{print \$1}' /opt/dotfiles/packages/aur.archlinux.org | xargs paru -Syu --needed --noconfirm --skipreview
-'
+
+    sudo git clone -b master --depth 1 https://github.com/keyitdev/sddm-astronaut-theme.git /usr/share/sddm/themes/sddm-astronaut-theme
+    sudo cp -r /usr/share/sddm/themes/sddm-astronaut-theme/Fonts/* /usr/share/fonts/
+    echo "[Theme]\nCurrent=sddm-astronaut-theme" | sudo tee /etc/sddm.conf
+    echo "[General]\nInputMethod=qtvirtualkeyboard" | sudo tee /etc/sddm.conf.d/virtualkbd.conf
+    sudo sed -i 's|ConfigFile=Themes/astronaut.conf|ConfigFile=Themes/pixel_sakura.conf|g' /usr/share/sddm/themes/sddm-astronaut-theme/metadata.desktop
+EOF_USER
 
 sed -i '$ d' /etc/sudoers
+
+cp -Rf /opt/dotfiles/.config /home/$USHERNAME/
+chown -R $USERNAME:$USERNAME /home/$USERNAME/.config
 
 # https://wiki.hyprland.org/Nvidia/#early-kms-modeset-and-fbdev
 
 CONFIG_FILE="/etc/mkinitcpio.conf"
 NVIDIA_MODULES=("nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm")
 
-for module in "$\{NVIDIA_MODULES[@]}"; do
+for module in "\${NVIDIA_MODULES[@]}"; do
     if ! grep -q "MODULES=(.*\$module" "\$CONFIG_FILE"; then
         sed -i "s/MODULES=(\(.*\))/MODULES=(\1 \$module)/" "\$CONFIG_FILE"
     fi
@@ -142,9 +151,6 @@ systemctl enable NetworkManager
 systemctl enable bluetooth.service
 # https://wiki.hyprland.org/Hypr-Ecosystem/hyprpolkitagent/#usage
 systemctl --user enable hyprpolkitagent.service
-# TODO: udiskie?
-
-cp -Rf .config/ ~/
 
 EOF
 
