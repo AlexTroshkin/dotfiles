@@ -17,6 +17,8 @@ cat <<"EOF"
 
 EOF
 
+pacman -Syu git fzf --needed --noconfirm
+
 DISKS=$(lsblk -d -n -o NAME,SIZE,MODEL | awk '{print "/dev/"$1, $2, $3}' | grep -v "loop")
 echo "💿 Select a disk on which the OS will be installed:" # (e.g. /dev/sda, /dev/nvme0n1)
 DISK=$(echo "$DISKS" | fzf --height=40% --reverse --prompt="Select disk > " | awk '{print $1}')
