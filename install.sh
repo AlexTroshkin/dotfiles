@@ -125,14 +125,16 @@ su - "$USERNAME" <<'EOF_USER'
 
     sudo git clone -b master --depth 1 https://github.com/keyitdev/sddm-astronaut-theme.git /usr/share/sddm/themes/sddm-astronaut-theme
     sudo cp -r /usr/share/sddm/themes/sddm-astronaut-theme/Fonts/* /usr/share/fonts/
-    echo "[Theme]\nCurrent=sddm-astronaut-theme" | sudo tee /etc/sddm.conf
-    echo "[General]\nInputMethod=qtvirtualkeyboard" | sudo tee /etc/sddm.conf.d/virtualkbd.conf
+    echo "[Theme]
+    Current=sddm-astronaut-theme" | sudo tee /etc/sddm.conf
+    echo "[General]
+    InputMethod=qtvirtualkeyboard" | sudo tee /etc/sddm.conf.d/virtualkbd.conf
     sudo sed -i 's|ConfigFile=Themes/astronaut.conf|ConfigFile=Themes/pixel_sakura.conf|g' /usr/share/sddm/themes/sddm-astronaut-theme/metadata.desktop
 EOF_USER
 
 sed -i '$ d' /etc/sudoers
 
-cp -Rf /opt/dotfiles/.config /home/$USHERNAME/
+cp -Rf /opt/dotfiles/.config /home/$USERNAME/
 chown -R $USERNAME:$USERNAME /home/$USERNAME/.config
 rm -rf /opt/dotfiles
 
@@ -149,11 +151,15 @@ done
 
 mkinitcpio -P
 
-systemctl enable NetworkManager
-# https://wiki.archlinux.org/title/Bluetooth
+systemctl enable sddm.service
 systemctl enable bluetooth.service
-# https://wiki.hyprland.org/Hypr-Ecosystem/hyprpolkitagent/#usage
+systemctl enable NetworkManager
 systemctl --user enable hyprpolkitagent.service
+
+
+#--- Change lid switch behaviour ---
+
+sudo sed -i -E 's/^#?HandleLidSwitch=.*/HandleLidSwitch=ignore/g; s/^#?HandleLidSwitchExternalPower=.*/HandleLidSwitchExternalPower=ignore/g; s/^#?HandleLidSwitchDocked=.*/HandleLidSwitchDocked=ignore/g' /etc/systemd/logind.conf
 
 EOF
 
