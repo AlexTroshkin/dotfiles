@@ -1,3 +1,5 @@
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
 # https://wiki.hyprland.org/Nvidia/#flickering-in-electron--cef-apps
 export ELECTRON_OZONE_PLATFORM_HINT=auto
 

@@ -1,3 +1,7 @@
-clipse          # A configurable TUI clipboard manager for Unix
-hyprshot        # A utility to easily take screenshots in Hyprland
-zen-browser-bin # Performance oriented Firefox-based web browser
+ayugram-desktop-bin    # Desktop Telegram client with good customization and Ghost mode built by RSG245
+clipse                 # A configurable TUI clipboard manager for Unix
+dotnet-sdk-bin         # The .NET Core SDK (binary)
+hiddify-next-bin       # Multi-platform auto-proxy client, supporting Sing-box, X-ray, TUIC, Hysteria, Reality, Trojan, SSH etc. It’s an open-source, secure and ad-free
+hyprshot               # A utility to easily take screenshots in Hyprland
+visual-studio-code-bin # Visual Studio Code (vscode): Editor for building and debugging modern web and cloud applications (official binary version)
+zen-browser-bin        # Performance oriented Firefox-based web browser

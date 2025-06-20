@@ -6,8 +6,10 @@ extra/blueman                     # GTK+ Bluetooth Manager
 extra/bluez                       # Daemons for the bluetooth protocol stack
 extra/bluez-utils                 # Development and debugging utilities for the bluetooth protocol stack
 extra/dunst                       # Customizable and lightweight notification-daemon
+extra/fd                          # Simple, fast and user-friendly alternative to find 
 extra/git                         # The fast distributed version control system
 extra/hyprland                    # A highly customizable dynamic tiling Wayland compositor
+extra/hyprpaper                   # A blazing fast wayland wallpaper utility with IPC controls
 extra/hyprpolkitagent             # Simple polkit authentication agent for Hyprland, written in QT/QML (https://wiki.hyprland.org/Hypr-Ecosystem/hyprpolkitagent/)
 extra/keepassxc                   # Cross-platform community-driven port of Keepass password manager
 extra/kitty                       # A modern, hackable, featureful, OpenGL-based terminal emulator
@@ -22,6 +24,8 @@ extra/pipewire-alsa               # Low-latency audio/video router and processor
 extra/pipewire-audio              # Low-latency audio/video router and processor - Audio support
 extra/pipewire-jack               # Low-latency audio/video router and processor - JACK replacement
 extra/pipewire-pulse              # Low-latency audio/video router and processor - PulseAudio replacement
+extra/podman                      # Tool and library for running OCI-based containers in pods
+extra/podman-desktop              # Manage Podman and other container engines from a single UI and tray
 extra/qt5-wayland                 # Provides APIs for Wayland (https://wiki.hyprland.org/Useful-Utilities/Must-have/#qt-wayland-support)
 extra/qt5ct                       # Qt 5 Configuration Utility (https://wiki.hyprland.org/Getting-Started/Master-Tutorial/#themes)
 extra/qt6-multimedia-ffmpeg       # FFMpeg backend for qt6-multimedia
@@ -29,11 +33,16 @@ extra/qt6-svg                     # Classes for displaying the contents of SVG f
 extra/qt6-virtualkeyboard         # Virtual keyboard framework
 extra/qt6-wayland                 # Provides APIs for Wayland (https://wiki.hyprland.org/Useful-Utilities/Must-have/#qt-wayland-support)
 extra/qt6ct                       # Qt 6 Configuration Utility (https://wiki.hyprland.org/Getting-Started/Master-Tutorial/#themes)
+extra/ripgrep                     # A search tool that combines the usability of ag with the raw speed of grep 
+extra/rofi-wayland                # A window switcher, run dialog and dmenu replacement - fork with wayland support
 extra/sddm                        # QML based X11 and Wayland display manager
-extra/ttf-inconsolata-nerd        # Patched font Inconsolata from nerd fonts library
+extra/ttf-firacode-nerd           # Patched font Fira (Fura) Code from nerd fonts library
+extra/ttf-nerd-fonts-symbols      # High number of extra glyphs from popular 'iconic fonts'
 extra/udiskie                     # Removable disk automounter using udisks
+extra/unzip                       # For extracting and viewing files in .zip archives 
 extra/uwsm                        # A standalone Wayland session manager (https://wiki.hyprland.org/Getting-Started/Master-Tutorial/#launching-hyprland)
 extra/wireplumber                 # Session / policy manager implementation for PipeWire
 extra/wl-clipboard                # Command-line copy/paste utilities for Wayland
 extra/xdg-desktop-portal-gtk      # A backend implementation for xdg-desktop-portal using GTK
 extra/xdg-desktop-portal-hyprland # xdg-desktop-portal backend for hyprland
+extra/spotify-launcher            # Client for spotify's apt repository in Rust for Arch Linux

@@ -87,6 +87,8 @@ set -euo pipefail
 
 ln -sf /usr/share/zoneinfo/$TIMEZONE /etc/localtime
 hwclock --systohc
+timedatectl set-ntp true
+
 echo "$LOCALE UTF-8" >> /etc/locale.gen
 locale-gen
 echo "LANG=$LOCALE" > /etc/locale.conf
@@ -154,8 +156,8 @@ mkinitcpio -P
 systemctl enable sddm.service
 systemctl enable bluetooth.service
 systemctl enable NetworkManager
+systemctl --user enable ssh-agent
 systemctl --user enable hyprpolkitagent.service
-
 
 #--- Change lid switch behaviour ---
 
