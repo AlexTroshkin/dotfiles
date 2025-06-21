@@ -24,6 +24,7 @@ extra/pipewire-alsa               # Low-latency audio/video router and processor
 extra/pipewire-audio              # Low-latency audio/video router and processor - Audio support
 extra/pipewire-jack               # Low-latency audio/video router and processor - JACK replacement
 extra/pipewire-pulse              # Low-latency audio/video router and processor - PulseAudio replacement
+extra/playerctl                   # MPRIS media player controller and lib for spotify, vlc, audacious, bmp, xmms2, and others
 extra/podman                      # Tool and library for running OCI-based containers in pods
 extra/podman-desktop              # Manage Podman and other container engines from a single UI and tray
 extra/qt5-wayland                 # Provides APIs for Wayland (https://wiki.hyprland.org/Useful-Utilities/Must-have/#qt-wayland-support)
@@ -36,6 +37,7 @@ extra/qt6ct                       # Qt 6 Configuration Utility (https://wiki.hyp
 extra/ripgrep                     # A search tool that combines the usability of ag with the raw speed of grep 
 extra/rofi-wayland                # A window switcher, run dialog and dmenu replacement - fork with wayland support
 extra/sddm                        # QML based X11 and Wayland display manager
+extra/spotify-launcher            # Client for spotify's apt repository in Rust for Arch Linux
 extra/ttf-firacode-nerd           # Patched font Fira (Fura) Code from nerd fonts library
 extra/ttf-nerd-fonts-symbols      # High number of extra glyphs from popular 'iconic fonts'
 extra/udiskie                     # Removable disk automounter using udisks
@@ -45,4 +47,3 @@ extra/wireplumber                 # Session / policy manager implementation for 
 extra/wl-clipboard                # Command-line copy/paste utilities for Wayland
 extra/xdg-desktop-portal-gtk      # A backend implementation for xdg-desktop-portal using GTK
 extra/xdg-desktop-portal-hyprland # xdg-desktop-portal backend for hyprland
-extra/spotify-launcher            # Client for spotify's apt repository in Rust for Arch Linux
