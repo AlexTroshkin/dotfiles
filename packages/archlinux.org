@@ -14,11 +14,13 @@ extra/hyprpolkitagent             # Simple polkit authentication agent for Hyprl
 extra/keepassxc                   # Cross-platform community-driven port of Keepass password manager
 extra/kitty                       # A modern, hackable, featureful, OpenGL-based terminal emulator
 extra/libva-nvidia-driver         # https://wiki.hyprland.org/Nvidia/#va-api-hardware-video-acceleration
+extra/nautilus                    # Default file manager for GNOME
 extra/networkmanager              # Network connection manager and user applications
 extra/noto-fonts-emoji            # Google Noto emoji fonts
 extra/nvidia-open-dkms            # https://wiki.hyprland.org/Nvidia/
 extra/nvidia-utils                # https://wiki.hyprland.org/Nvidia/#further-installation
 extra/nwg-look                    # GTK settings editor adapted to work on wlroots-based compositors (https://wiki.hyprland.org/Getting-Started/Master-Tutorial/#themes)
+extra/obsidian                    # A powerful knowledge base that works on top of a local folder of plain text Markdown files
 extra/pipewire                    # Low-latency audio/video router and processor
 extra/pipewire-alsa               # Low-latency audio/video router and processor - ALSA configuration
 extra/pipewire-audio              # Low-latency audio/video router and processor - Audio support
@@ -38,6 +40,7 @@ extra/ripgrep                     # A search tool that combines the usability of
 extra/rofi-wayland                # A window switcher, run dialog and dmenu replacement - fork with wayland support
 extra/sddm                        # QML based X11 and Wayland display manager
 extra/spotify-launcher            # Client for spotify's apt repository in Rust for Arch Linux
+extra/swww                        # A Solution to your Wayland Wallpaper Woes
 extra/ttf-firacode-nerd           # Patched font Fira (Fura) Code from nerd fonts library
 extra/ttf-nerd-fonts-symbols      # High number of extra glyphs from popular 'iconic fonts'
 extra/udiskie                     # Removable disk automounter using udisks

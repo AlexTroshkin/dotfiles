@@ -5,3 +5,4 @@ hiddify-next-bin       # Multi-platform auto-proxy client, supporting Sing-box, 
 hyprshot               # A utility to easily take screenshots in Hyprland
 visual-studio-code-bin # Visual Studio Code (vscode): Editor for building and debugging modern web and cloud applications (official binary version)
 zen-browser-bin        # Performance oriented Firefox-based web browser
+waypaper               # GUI wallpaper setter for Wayland and Xorg window managers. It works as a frontend for popular wallpaper backends like swaybg, swww, wallutils, hyprpaper and feh.
