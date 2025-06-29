@@ -50,3 +50,4 @@ extra/wireplumber                 # Session / policy manager implementation for 
 extra/wl-clipboard                # Command-line copy/paste utilities for Wayland
 extra/xdg-desktop-portal-gtk      # A backend implementation for xdg-desktop-portal using GTK
 extra/xdg-desktop-portal-hyprland # xdg-desktop-portal backend for hyprland
+extra/obsidian                    # A powerful knowledge base that works on top of a local folder of plain text Markdown files
